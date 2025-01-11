@@ -54,7 +54,7 @@ export default function Home() {
                             >
                                 Delete
                             </button>
-                            <Link href={`/components/form/${item._id}`} className="bg-red-500 text-white px-3 py-1 rounded">See Details</Link>
+                            <Link href={`/components/user-details/${item._id}`} className="bg-red-500 text-white px-3 py-1 rounded">See Details</Link>
                         </div>
                     </div>
                 ))
