@@ -1,4 +1,4 @@
-import connectDB from "../../../../utils/database";
+import { connectDB } from "../../../../utils/database";
 import bcrypt from "bcrypt";
 
 export async function POST(req) {
@@ -7,8 +7,6 @@ export async function POST(req) {
     try {
         const db = await connectDB();
         const users = db.collection("userpass");
-
-        // Check if user exists
         const user = await users.findOne({ email });
         if (!user) {
             return new Response(JSON.stringify({ message: "User not found!" }), { status: 404 });
