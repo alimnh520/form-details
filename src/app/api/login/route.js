@@ -15,7 +15,7 @@ export async function POST(req) {
         // Compare passwords
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            return new Response(JSON.stringify({ message: "User name or password" }), { status: 401 });
+            return new Response(JSON.stringify({ message: "Invalid email or password" }), { status: 401 });
         }
 
         return new Response(JSON.stringify({ message: true }), { status: 200 });
