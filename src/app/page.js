@@ -1,65 +1,40 @@
-"use client";
-import { useEffect, useState } from "react";
+import Link from 'next/link'
+import React from 'react'
 
-export default function Home() {
-  const [form, setForm] = useState({ email: "", password: "" });
-  const [message, setMessage] = useState("");
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (endpoint) => {
-    const res = await fetch(`/api/${endpoint}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
-    const data = await res.json();
-    if (data.message == true) {
-      window.location.href = '/components/user-details'
-    }
-    setMessage(data.message);
-  };
-  
+const page = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
-      <h1 className="text-2xl font-bold">Login/Register</h1>
+    <div className='w-full h-screen flex flex-col items-center justify-start pt-10'>
+      <div className="w-full h-80 flex flex-col space-y-5 items-center justify-center sm:h-auto sm:justify-start sm:mt-5">
+        <h1 className='text-4xl py-5 font-semibold sm:text-2xl'>ভূমি সংক্রান্ত সেবা</h1>
+        <div className="w-10/12 h-56 grid grid-rows-1 grid-cols-3 gap-x-10 sm:gap-x-0 sm:grid-cols-1 sm:grid-rows-3 sm:h-auto sm:gap-y-5">
+          <Link href="/components/land-tax3" className="shadow-[0_0_10px_rgba(0,0,0,0.5)] cursor-pointer bg-white rounded-md flex flex-col items-center justify-center relative space-y-5 sm:h-52">
+            <div className=" absolute w-full h-10 rounded-md bg-blue-950 top-0"></div>
+            <div className="size-20 flex items-center justify-center">
+              <img src="/logos/1732162861.webp" alt="" />
+            </div>
+            <h1 className='text-2xl font-semibold'>মিউটেশন</h1>
 
-      <div className="w-full max-w-sm mt-6 bg-white p-4 rounded shadow">
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={form.email}
-          onChange={handleChange}
-          className="w-full p-2 border mb-4 rounded"
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={form.password}
-          onChange={handleChange}
-          className="w-full p-2 border mb-4 rounded"
-        />
+          </Link>
+          <Link href="/components/land-tax2" className="shadow-[0_0_10px_rgba(0,0,0,0.5)] cursor-pointer bg-white rounded-md flex flex-col items-center justify-center relative space-y-5 sm:h-52">
+            <div className=" absolute w-full h-10 rounded-md bg-purple-600 top-0"></div>
+            <div className="size-20 flex items-center justify-center">
+              <img src="/logos/1732789801.webp" alt="" />
+            </div>
+            <h1 className='text-2xl font-semibold'>ভূমি উন্নয়ন কর</h1>
 
-        <div className="flex gap-4">
-          <button
-            onClick={() => handleSubmit("register")}
-            className="w-full bg-blue-500 text-white py-2 rounded"
-          >
-            Register
-          </button>
-          <button
-            onClick={() => handleSubmit("login")}
-            className="w-full bg-green-500 text-white py-2 rounded"
-          >
-            Login
-          </button>
+          </Link>
+          <Link href="/components/land-tax" className="shadow-[0_0_10px_rgba(0,0,0,0.5)] cursor-pointer bg-white rounded-md flex flex-col items-center justify-center relative space-y-5 sm:h-52">
+            <div className=" absolute w-full h-10 rounded-md bg-teal-500 top-0"></div>
+            <div className="size-20 flex items-center justify-center">
+              <img src="/logos/1732941934.webp" alt="" />
+            </div>
+            <h1 className='text-2xl font-semibold'>ভূমি রেকর্ড ও ম্যাপ</h1>
+
+          </Link>
         </div>
-        {message && <p className="mt-4 text-red-500">{message}</p>}
       </div>
     </div>
-  );
+  )
 }
+
+export default page

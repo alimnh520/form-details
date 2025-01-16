@@ -4,7 +4,7 @@ import { connectDB } from "../../../../utils/database";
 export async function GET() {
     try {
         const db = await connectDB();
-        const collection = db.collection("users");
+        const collection = db.collection("landtaxes");
         const data = await collection.find({}).toArray();
         return NextResponse.json(data);
     } catch (error) {

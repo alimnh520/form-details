@@ -12,7 +12,7 @@ export async function DELETE(request) {
 
     try {
         const db = await connectDB();
-        const collection = db.collection("users");
+        const collection = db.collection("landtaxes");
         const result = await collection.deleteOne({ _id: new ObjectId(id) });
 
         if (result.deletedCount === 0) {
