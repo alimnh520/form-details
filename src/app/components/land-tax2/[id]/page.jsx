@@ -6,12 +6,11 @@ export default function Home({ params }) {
     const router = useRouter();
     const { id } = use(params);
     const [items, setItems] = useState([]);
-    console.log(items);
 
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await fetch("../../api/get-landTax");
+                const response = await fetch("../../api/get-landTax2");
                 const data = await response.json();
                 setItems(data);
             } catch (error) {
@@ -37,6 +36,8 @@ export default function Home({ params }) {
                                             <th className="px-10 py-3 border-r border-r-gray-400">উপজেলা</th>
                                             <th className="px-10 py-3 border-r border-r-gray-400">মৌজা</th>
                                             <th className="px-10 py-3 border-r border-r-gray-400">খতিয়ান নাম</th>
+                                            <th className="px-10 py-3">NID নাম্বার</th>
+                                            <th className="px-10 py-3">জন্ম তারিখ</th>
                                             <th className="px-10 py-3">মোবাইল</th>
                                         </tr>
                                     </thead>
@@ -47,6 +48,8 @@ export default function Home({ params }) {
                                             <td className="text-center py-2 px-10 border-r border-r-gray-400">{currElm.upazilaName}</td>
                                             <td className="text-center py-2 px-10 border-r border-r-gray-400">{currElm.mouzaName}</td>
                                             <td className="text-center py-2 px-10 border-r border-r-gray-400">{currElm.khatianName}</td>
+                                            <td className="text-center py-2 px-10 border-r border-r-gray-400">{currElm.nidNum}</td>
+                                            <td className="text-center py-2 px-10 border-r border-r-gray-400">{currElm.dobNum}</td>
                                             <td className="text-center py-2 px-10 border-r border-r-gray-400">{currElm.mobile}</td>
                                         </tr>
                                     </tbody>

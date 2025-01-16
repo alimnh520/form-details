@@ -12,7 +12,7 @@ export default function Home() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await fetch("../../api/get");
+                const response = await fetch("../../api/get-landTax");
                 const data = await response.json();
                 setItems(data);
             } catch (error) {
@@ -24,7 +24,7 @@ export default function Home() {
 
     const deleteItem = async (id) => {
         try {
-            const response = await fetch(`/api/delete?id=${id}`, {
+            const response = await fetch(`/api/delete-landTax?id=${id}`, {
                 method: "DELETE",
             });
             const result = await response.json();
