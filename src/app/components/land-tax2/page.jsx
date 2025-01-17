@@ -42,13 +42,13 @@ export default function Home() {
     };
 
     return (
-        <div className="w-full h-screen flex flex-col items-center justify-center px-20">
+        <div className="w-full h-screen flex flex-col items-center justify-center px-20 sm:px-5">
             {deleteDesign &&
                 <div className=" absolute size-32 border-8 border-transparent border-t-red-500 border-r-red-500 rounded-full animate-spin"></div>
             }
-            <h1 className="text-2xl font-bold w-full border-b border-b-gray-400 text-center py-5">Data List</h1>
+            <h1 className="text-2xl font-bold w-full border-b border-b-gray-400 text-center py-5 sm:px-10">Data List</h1>
 
-            <div className="w-10/12 h-auto pt-5 flex flex-col items-center justify-center space-y-3">
+            <div className="w-10/12 h-auto pt-5 flex flex-col items-center justify-center space-y-3 sm:w-full">
                 <p className="w-full text-start px-2">মোবাইল নাম্বার :</p>
                 {items.length > 0 ? (
                     items.map((item) => (
@@ -56,9 +56,9 @@ export default function Home() {
                             key={item._id}
                             className="w-full flex justify-between items-center border border-gray-300"
                         >
-                            <p className="w-1/2 p-2 h-full border-r border-r-gray-300">{item.mobile}</p>
-                            <div className="flex items-center justify-center space-x-5 p-2">
-                                <Link href={`/components/land-tax2/${item._id}`} className="bg-red-500 text-white px-3 py-1 rounded">See Details</Link>
+                            <p className="w-1/2 p-2 h-full border-r border-r-gray-300">0{item.mobile}</p>
+                            <div className="flex items-center justify-center space-x-5 p-2 sm:space-x-3">
+                                <Link href={`/components/land-tax2/${item._id}`} className="bg-red-500 text-white px-3 py-1 rounded">Details</Link>
                                 <button
                                     className="bg-red-500 text-white px-3 py-1 rounded"
                                     onClick={() => {
